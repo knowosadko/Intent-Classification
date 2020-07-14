@@ -9,25 +9,26 @@ Preprocessing polega na wyrzuceniu ze zdań znajdującyh się w zbiorze treningo
 Do reprezentacji słów użyłem modelu Fasttext, który wcześniej zostaje wyuczony na zbiorze treningowym przy uzyciu algorytmu uczenia bez nadzoru. Nastepnie każde ze zdań formuje macierz kwadratową, która stanowi wejście do sieci.
 Architektura sieci wygląda następująco:
 
-ConvolutionalNetwork(
-  (conv_layer1): Sequential(
-    (0): Conv2d(1, 32, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2))
-    (1): ReLU()
-    (2): MaxPool2d(kernel_size=2, stride=2, padding=1, dilation=1, ceil_mode=False)
-  )
-  (conv_layer2): Sequential(
-    (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-    (1): ReLU()
-    (2): MaxPool2d(kernel_size=2, stride=2, padding=1, dilation=1, ceil_mode=False)
-  )
-  (conv_layer3): Sequential(
-    (0): Conv2d(32, 64, kernel_size=(2, 2), stride=(1, 1), padding=(1, 1))
-    (1): ReLU()
-    (2): MaxPool2d(kernel_size=2, stride=2, padding=1, dilation=1, ceil_mode=False)
-  )
-  (fc1): Linear(in_features=1024, out_features=200, bias=True)
-  (fc2): Linear(in_features=200, out_features=7, bias=True)
-)
+
+    ConvolutionalNetwork(
+      (conv_layer1): Sequential(
+        (0): Conv2d(1, 32, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2))
+        (1): ReLU()
+        (2): MaxPool2d(kernel_size=2, stride=2, padding=1, dilation=1, ceil_mode=False)
+      )
+      (conv_layer2): Sequential(
+        (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): MaxPool2d(kernel_size=2, stride=2, padding=1, dilation=1, ceil_mode=False)
+      )
+      (conv_layer3): Sequential(
+        (0): Conv2d(32, 64, kernel_size=(2, 2), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): MaxPool2d(kernel_size=2, stride=2, padding=1, dilation=1, ceil_mode=False)
+      )
+      (fc1): Linear(in_features=1024, out_features=200, bias=True)
+      (fc2): Linear(in_features=200, out_features=7, bias=True)
+    )
 
 Poniżej osiągnięte wyniki:
 Results:  97.86%
